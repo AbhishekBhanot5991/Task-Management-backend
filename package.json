@@ -19,5 +19,8 @@
     "nodemon": "^2.0.22"
   },
   "author": "Your Name",
-  "license": "MIT"
+  "license": "MIT",
+  "engines": {
+    "node": "14.x"
+  }
 }
