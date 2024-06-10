@@ -1,4 +1,5 @@
 const express = require('express');
+const testDbConnection = require('./test-db-connection')
 const bodyParser = require('body-parser');
 const authRoutes = require('./routes/authRoutes');
 const taskRoutes = require('./routes/taskRoutes');
@@ -10,10 +11,15 @@ const app = express();
 
 
 app.use(bodyParser.json());
+app.use('/api/test-db-connection', testDbConnection);
 app.get('/', (req, res) => {
     res.send('products api running new deploy');
 });
-
+// Test route to verify the server is working
+app.get('/api', (req, res) => {
+    res.status(200).json({ message: 'API is working!' });
+  });
+  // Add other routes here
 app.get('/ping', (req, res) => {
     res.send('PONG')
 });
